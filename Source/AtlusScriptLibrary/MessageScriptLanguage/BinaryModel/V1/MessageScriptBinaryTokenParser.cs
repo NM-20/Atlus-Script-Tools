@@ -20,7 +20,7 @@ public static class MessageScriptBinaryTokenParser
         }
         if (b == NewLineToken.ASCIIValue)
         {
-            tokens.Add(new NewLineToken());
+            return true;
         }
         else if (IsFunctionToken(b, version))
         {
@@ -135,7 +135,18 @@ public static class MessageScriptBinaryTokenParser
 
             b = buffer[bufferIndex];
 
-            if (b == 0 || b == NewLineToken.ASCIIValue || (b & 0xF0) == 0xF0)
+            if (b == NewLineToken.ASCIIValue)
+            {
+                // Skip newlines
+                bufferIndex++;
+                if (bufferIndex == buffer.Count)
+                    break;
+                else
+                    b = buffer[bufferIndex];
+                accumulatedText.Add((byte)(' '));
+            }
+
+            if (b == 0 || (b & 0xF0) == 0xF0)
             {
                 break;
             }

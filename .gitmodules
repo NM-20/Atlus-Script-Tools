@@ -1,0 +1,3 @@
+[submodule "Submodules/Amicitia.IO"]
+	path = Submodules/Amicitia.IO
+	url = https://github.com/tge-was-taken/Amicitia.IO.git

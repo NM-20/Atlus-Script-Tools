@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TranslationHelper": {
+      "commandName": "Project",
+      "commandLineArgs": "I \"C:\\Users\\NM\\Downloads\\DATMSG\""
+    }
+  }
+}
